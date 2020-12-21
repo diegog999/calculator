@@ -24,7 +24,7 @@ class Calculator {
     return this._result;
   }
 
-  toggleEquals(){
+  toggleEquals() {
     this._equalsTriggered = !this._equalsTriggered;
   }
 
@@ -34,7 +34,7 @@ class Calculator {
   //   return evalResult;
 
   clearMethod() {
-    console.log("clear called")
+    console.log("clear called");
     calculatorScreen.innerHTML = "";
   }
 
@@ -66,18 +66,18 @@ function printResult(val) {
 document.querySelectorAll("#calculator span").forEach((key) => {
   if (key.innerText !== "=" && key.innerText !== "M" && key.innerText !== "C") {
     key.addEventListener("click", (e) => {
-      if(myCalc._equalsTriggered){
-        myCalc.toggleEquals()
-        myCalc.clearMethod()
+      if (myCalc._equalsTriggered) {
+        myCalc.toggleEquals();
+        myCalc.clearMethod();
       }
       print(e.target.innerText);
     });
-  } else if(key.innerText === "="){
+  } else if (key.innerText === "=") {
     key.addEventListener("click", (e) => {
       console.log("EQUALS!");
       const screenShows = calculatorScreen.innerText;
       myCalc.equalsMethod(screenShows);
-      myCalc.toggleEquals()
+      myCalc.toggleEquals();
       printResult(myCalc._result);
       myCalc.historyMethod(myCalc._result);
     });
